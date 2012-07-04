@@ -39,11 +39,11 @@ typedef NSUInteger EnemyType;
 - (void)initializeObject;
 // 创建敌人
 - (void)constractionEnemies;
-
+// 设置waypoint并且开始寻路
 - (void)startRunWithWayPoint:(NSArray *)wayPoint;
-
+// 自动寻路函数
 - (void)followPath;
-
-- (void)
+// 销毁这个enemy对象
+- (void)terminated;
 
 @end

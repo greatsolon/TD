@@ -10,6 +10,7 @@
 #import "MapUILayer.h"
 #import "ShaderNode.h"
 #import "TowerObject.h"
+#import "EnemyFactory.h"
 
 @implementation MapLayer
 @synthesize map = m_map;
@@ -22,6 +23,7 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		// 初始化地图对象
 		m_map = [MapObject node];
+		m_map.delegate = self;
 		[self addChild:m_map];
 		// 添加游戏逻辑层
 		[self createTowerObject];
@@ -48,12 +50,34 @@
 
 #pragma mark - constraction function
 
+- (void)loadResources
+{
+	[super load];
+}
+
 - (void)createTowerObject
 {
 	TowerObject *towerObject = [TowerObject node];
 	towerObject.position = ccp(400, 340);
 	NSAssert( towerObject.parent == nil, @"child already added. It can't be added again");
 	[self addChild:towerObject z:999];
+}
+
+#pragma mark - war function
+
+- (void)startWave:(int)wave
+{
+	EnemyObject *factory = [EnemyFactory enemiesWithType:EnemyTypeOrc];
+	[self addChild:factory];
+	
+	[factory startRunWithWayPoint:m_map.wayPoint];
+}
+
+#pragma mark - MapObjectDelegate function
+
+- (void)dataDidLoadOver
+{
+	[self startWave:1];
 }
 
 #pragma mark - touch function

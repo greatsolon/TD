@@ -73,12 +73,14 @@
 	}
 	// 加载各种动画
 	CCSprite *enemySprite = [CCSprite spriteWithSpriteFrameName:@"ogre_0003.png"];
+	enemySprite.anchorPoint = ccp(0.5, 0);
 	[self addChild:enemySprite];
 }
 
 - (void)startRunWithWayPoint:(NSArray *)wayPoint
 {
 	self.wayPoint = wayPoint;
+	self.position = CGPointFromString([wayPoint objectAtIndex:0]);
 	[self followPath];
 }
 
@@ -90,15 +92,11 @@
 	NSString *wayPointString = [self.wayPoint objectAtIndex:m_pathIndex];
 	if (wayPointString == nil) return;
 	CGPoint point = CGPointFromString(wayPointString);
-	if (m_pathIndex == 0) {
-		self.position = point;
-	}
+	++m_pathIndex;
 	
 	CCMoveTo *actionMove = [CCMoveTo actionWithDuration:m_speed position:point];
 	CCCallFuncN *actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(followPath)];
 	[self runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
-	
-	++m_pathIndex;
 }
 
 @end

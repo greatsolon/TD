@@ -19,8 +19,16 @@ enum {
 };
 typedef NSUInteger MapType;
 
+@protocol MapObjectDelegate <NSObject>
+
+@optional
+- (void)dataDidLoadOver;
+
+@end
+
 @interface MapObject : GodObject {
 @private
+	id<MapObjectDelegate>		m_delegate;
 	MapType						m_type;
 	NSDictionary *				m_soundFile;
 	
@@ -31,6 +39,7 @@ typedef NSUInteger MapType;
 	NSMutableArray *			m_waveInfo;
 }
 
+@property (nonatomic, assign) id<MapObjectDelegate> delegate;
 @property (nonatomic, assign) MapType type;
 @property (nonatomic, retain) NSArray *wayPoint;
 

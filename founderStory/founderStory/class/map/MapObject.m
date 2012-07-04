@@ -9,6 +9,7 @@
 #import "MapObject.h"
 
 @implementation MapObject
+@synthesize delegate = m_delegate;
 @synthesize type = m_type;
 @synthesize wayPoint = m_wayPoint;
 
@@ -34,6 +35,9 @@
 	if (self.resources) {
 		// 资源加载结束回调函数
 		[self setBackgroundWithSprite:[CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"Stage_%d.png", self.type]]];
+	}
+	if (self.delegate && [self.delegate respondsToSelector:@selector(dataDidLoadOver)]) {
+		[self.delegate dataDidLoadOver];
 	}
 }
 

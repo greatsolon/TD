@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 #import "MapObject.h"
 
-@interface MapLayer : CCLayer {
+@interface MapLayer : CCLayer <MapObjectDelegate> {
 @private
 	MapObject *			m_map;
 }
@@ -17,5 +17,7 @@
 @property (nonatomic, readonly) MapObject *map;
 
 - (void)createTowerObject;
+
+- (void)startWave:(int)wave;
 
 @end
