@@ -19,14 +19,25 @@ typedef NSUInteger EnemyType;
 @interface EnemyObject : GodObject {
     
 @private
-	int				m_level;
-	int				m_speed;
-	int				m_attack;
+	int						m_level;
+	int						m_speed;
+	int						m_attack;
 	
-	EnemyType		m_type;
+	EnemyType				m_type;
+	CCSprite *				m_enemySprite;
 	
-	int				m_pathIndex;
-	NSArray	*		m_wayPoint;
+	int						m_pathIndex;
+	NSArray	*				m_wayPoint;
+	
+	CGPoint					m_lastPoint;
+	ObjectAction			m_action;
+	
+	CCAnimate *				m_upAnimate;
+	CCAnimate *				m_rightAnimate;
+	CCAnimate *				m_downAnimate;
+	CCAnimate *				m_leftAnimate;
+	
+	CGPoint 				m_flip;
 }
 
 @property (nonatomic, assign) EnemyType type;
@@ -39,6 +50,8 @@ typedef NSUInteger EnemyType;
 - (void)initializeObject;
 // 创建敌人
 - (void)constractionEnemies;
+// 根据方向播放动画
+- (void)playAnimationWithDirection:(ObjectAction)action;
 // 设置waypoint并且开始寻路
 - (void)startRunWithWayPoint:(NSArray *)wayPoint;
 // 自动寻路函数

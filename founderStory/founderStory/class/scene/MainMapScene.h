@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface MapScene : CCLayer {
+@interface MainMapScene : CCLayer {
     CCAnimation *				m_ship1;
 	CCAnimation *				m_ship2;
 }

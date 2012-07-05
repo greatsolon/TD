@@ -8,6 +8,18 @@
 
 #import "cocos2d.h"
 
+enum {
+	ObjectActionINVALID = 0,
+	ObjectActionUp,
+	ObjectActionRight,
+	ObjectActionDown,
+	ObjectActionLeft,
+	ObjectActionFight,
+	ObjectActionConstraint,
+	ObjectActionDead,
+};
+typedef NSUInteger ObjectAction;
+
 @interface GodObject : CCNode {
 
 @private

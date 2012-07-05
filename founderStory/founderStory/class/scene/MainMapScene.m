@@ -6,11 +6,11 @@
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MapScene.h"
+#import "MainMapScene.h"
 #import "LoadingScene.h"
 #import "AnimationHelper.h"
 
-@implementation MapScene
+@implementation MainMapScene
 
 + (CCScene *)scene
 {
@@ -18,7 +18,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	MapScene *layer = [MapScene node];
+	MainMapScene *layer = [MainMapScene node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -42,7 +42,7 @@
 		// 构建两艘小船在地图上跑 (暂时只放一艘，另一艘需要时间搞)
 		CCSprite *ship1 = [CCSprite spriteWithSpriteFrameName:@"mapDeco_ship2_0016.png"];
 		ship1.position = ccp(280.0f, 140.0f);
-		CCAnimate *ship1AnimationAction = [AnimationHelper getAnimationForFrameName:@"mapDeco_ship2_%04d.png" startNumber:17 endNumber:91 andDuration:0.05f];//[CCAnimate actionWithAnimation:m_ship1];
+		CCAnimate *ship1AnimationAction = [AnimationHelper getAnimationForFrameName:@"mapDeco_ship2_%04d.png" startNumber:17 endNumber:91 andDuration:0.05f];
 		CCMoveTo *ship1Move = [CCMoveTo actionWithDuration:2.0f position:ccp(340.0f, 120.0f)];
 		CCMoveTo *ship1Reverse = [CCMoveTo actionWithDuration:0.0f position:ccp(280.0f, 140.0f)];
 		CCFadeIn *fadeIn1 = [CCFadeIn actionWithDuration:0.3f];
@@ -54,7 +54,7 @@
 		
 		CCSprite *ship2 = [CCSprite spriteWithSpriteFrameName:@"mapDeco_ship1_0016.png"];
 		ship2.position = ccp(200.0f, 110.0f);
-		CCAnimate *ship2AnimationAction = [AnimationHelper getAnimationForFrameName:@"mapDeco_ship1_%04d.png" startNumber:17 endNumber:91 andDuration:0.03f];//[CCAnimate actionWithAnimation:m_ship1];
+		CCAnimate *ship2AnimationAction = [AnimationHelper getAnimationForFrameName:@"mapDeco_ship1_%04d.png" startNumber:17 endNumber:91 andDuration:0.03f];
 		CCMoveTo *ship2Move = [CCMoveTo actionWithDuration:1.0f position:ccp(196.0f, 108.0f)];
 		CCMoveTo *ship2Reverse = [CCMoveTo actionWithDuration:0.0f position:ccp(140.0f, 60.0f)];
 		CCMoveTo *ship2MoveBack = [CCMoveTo actionWithDuration:2.0f position:ccp(196.0f, 108.0f)];

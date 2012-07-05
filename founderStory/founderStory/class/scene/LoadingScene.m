@@ -8,7 +8,7 @@
 
 #import "LoadingScene.h"
 #import "MainScene.h"
-#import "MapScene.h"
+#import "MainMapScene.h"
 #import "GameScene.h"
 
 @implementation LoadingScene
@@ -68,7 +68,7 @@
 			break;
 		case LoadingSceneTypeMap:
 		{
-			scene = [MapScene scene];
+			scene = [MainMapScene scene];
 		}
 			break;	
 		case LoadingSceneTypeGame:

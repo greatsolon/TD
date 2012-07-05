@@ -351,7 +351,7 @@
 		AEAC2B43159AF738002F4149 /* mainmenu_spritesheet_32_2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = AEAC2B3B159AF726002F4149 /* mainmenu_spritesheet_32_2-ipadhd.png */; };
 		AEAC2B44159AF738002F4149 /* mainmenu_spritesheet_32_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEAC2B3C159AF732002F4149 /* mainmenu_spritesheet_32_2.plist */; };
 		AEAC2B45159AF738002F4149 /* mainmenu_spritesheet_32_2.png in Resources */ = {isa = PBXBuildFile; fileRef = AEAC2B3D159AF736002F4149 /* mainmenu_spritesheet_32_2.png */; };
-		AEAC2B48159AF90C002F4149 /* MapScene.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAC2B47159AF90B002F4149 /* MapScene.m */; };
+		AEAC2B48159AF90C002F4149 /* MainMapScene.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAC2B47159AF90B002F4149 /* MainMapScene.m */; };
 		AEACCE4C159D83F20052A525 /* MapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEACCE4B159D83F20052A525 /* MapLayer.m */; };
 		AEACCE56159D85E30052A525 /* sprite_level1_2-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEACCE4E159D85E30052A525 /* sprite_level1_2-ipadhd.plist */; };
 		AEACCE57159D85E30052A525 /* sprite_level1_2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = AEACCE4F159D85E30052A525 /* sprite_level1_2-ipadhd.png */; };
@@ -847,8 +847,8 @@
 		AEAC2B3B159AF726002F4149 /* mainmenu_spritesheet_32_2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainmenu_spritesheet_32_2-ipadhd.png"; sourceTree = "<group>"; };
 		AEAC2B3C159AF732002F4149 /* mainmenu_spritesheet_32_2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = mainmenu_spritesheet_32_2.plist; sourceTree = "<group>"; };
 		AEAC2B3D159AF736002F4149 /* mainmenu_spritesheet_32_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainmenu_spritesheet_32_2.png; sourceTree = "<group>"; };
-		AEAC2B46159AF90B002F4149 /* MapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScene.h; sourceTree = "<group>"; };
-		AEAC2B47159AF90B002F4149 /* MapScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapScene.m; sourceTree = "<group>"; };
+		AEAC2B46159AF90B002F4149 /* MainMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MainMapScene.h; sourceTree = "<group>"; };
+		AEAC2B47159AF90B002F4149 /* MainMapScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMapScene.m; sourceTree = "<group>"; };
 		AEACCE4A159D83F20052A525 /* MapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLayer.h; sourceTree = "<group>"; };
 		AEACCE4B159D83F20052A525 /* MapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapLayer.m; sourceTree = "<group>"; };
 		AEACCE4E159D85E30052A525 /* sprite_level1_2-ipadhd.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "sprite_level1_2-ipadhd.plist"; sourceTree = "<group>"; };
@@ -1649,8 +1649,8 @@
 				AEAC2AEA159ABBBB002F4149 /* MainScene.m */,
 				AEAC2B20159AC431002F4149 /* LoadingScene.h */,
 				AEAC2B21159AC431002F4149 /* LoadingScene.m */,
-				AEAC2B46159AF90B002F4149 /* MapScene.h */,
-				AEAC2B47159AF90B002F4149 /* MapScene.m */,
+				AEAC2B46159AF90B002F4149 /* MainMapScene.h */,
+				AEAC2B47159AF90B002F4149 /* MainMapScene.m */,
 				AEFC9727159B5CA80006D00C /* GameScene.h */,
 				AEFC9728159B5CA80006D00C /* GameScene.m */,
 			);
@@ -2629,7 +2629,7 @@
 				AEAC2AD1159AB0C4002F4149 /* main.m in Sources */,
 				AEAC2AEB159ABBBB002F4149 /* MainScene.m in Sources */,
 				AEAC2B22159AC431002F4149 /* LoadingScene.m in Sources */,
-				AEAC2B48159AF90C002F4149 /* MapScene.m in Sources */,
+				AEAC2B48159AF90C002F4149 /* MainMapScene.m in Sources */,
 				AEFC9729159B5CA80006D00C /* GameScene.m in Sources */,
 				AEFC972E159BEDA00006D00C /* AnimationHelper.m in Sources */,
 				AEACCE4C159D83F20052A525 /* MapLayer.m in Sources */,
