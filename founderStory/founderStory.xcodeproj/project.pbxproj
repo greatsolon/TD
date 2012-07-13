@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		AEA57AF215A138C700026DD8 /* MapUILayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA57AF115A138C700026DD8 /* MapUILayer.m */; };
 		AEA57B2A15A13FC000026DD8 /* ShaderNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA57B2915A13FC000026DD8 /* ShaderNode.m */; };
+		AEA9505F15A6BCF200248E96 /* Circle.fsh in Sources */ = {isa = PBXBuildFile; fileRef = AEA9505D15A6BCF100248E96 /* Circle.fsh */; };
+		AEA9506315A6BD0E00248E96 /* Circle.vsh in Sources */ = {isa = PBXBuildFile; fileRef = AEA9506215A6BD0E00248E96 /* Circle.vsh */; };
+		AEA9506415A6CA2600248E96 /* Circle.fsh in Resources */ = {isa = PBXBuildFile; fileRef = AEA9505D15A6BCF100248E96 /* Circle.fsh */; };
+		AEA9506515A6CA2800248E96 /* Circle.vsh in Resources */ = {isa = PBXBuildFile; fileRef = AEA9506215A6BD0E00248E96 /* Circle.vsh */; };
+		AEA9506A15A6D11F00248E96 /* gui_menu_sprite_3-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEA9506615A6D11E00248E96 /* gui_menu_sprite_3-ipadhd.plist */; };
+		AEA9506B15A6D11F00248E96 /* gui_menu_sprite_3-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA9506715A6D11F00248E96 /* gui_menu_sprite_3-ipadhd.png */; };
+		AEA9506C15A6D11F00248E96 /* gui_menu_sprite_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEA9506815A6D11F00248E96 /* gui_menu_sprite_3.plist */; };
+		AEA9506D15A6D11F00248E96 /* gui_menu_sprite_3.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA9506915A6D11F00248E96 /* gui_menu_sprite_3.png */; };
 		AEAC297D159AB02B002F4149 /* enemies_demons-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEAC282C159AB02A002F4149 /* enemies_demons-ipadhd.plist */; };
 		AEAC297E159AB02B002F4149 /* enemies_demons-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = AEAC282D159AB02A002F4149 /* enemies_demons-ipadhd.png */; };
 		AEAC297F159AB02B002F4149 /* enemies_demons.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEAC282E159AB02A002F4149 /* enemies_demons.plist */; };
@@ -500,6 +508,12 @@
 		AEA57AF115A138C700026DD8 /* MapUILayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapUILayer.m; sourceTree = "<group>"; };
 		AEA57B2815A13FC000026DD8 /* ShaderNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderNode.h; sourceTree = "<group>"; };
 		AEA57B2915A13FC000026DD8 /* ShaderNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderNode.m; sourceTree = "<group>"; };
+		AEA9505D15A6BCF100248E96 /* Circle.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Circle.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		AEA9506215A6BD0E00248E96 /* Circle.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Circle.vsh; sourceTree = "<group>"; };
+		AEA9506615A6D11E00248E96 /* gui_menu_sprite_3-ipadhd.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "gui_menu_sprite_3-ipadhd.plist"; sourceTree = "<group>"; };
+		AEA9506715A6D11F00248E96 /* gui_menu_sprite_3-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gui_menu_sprite_3-ipadhd.png"; sourceTree = "<group>"; };
+		AEA9506815A6D11F00248E96 /* gui_menu_sprite_3.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = gui_menu_sprite_3.plist; sourceTree = "<group>"; };
+		AEA9506915A6D11F00248E96 /* gui_menu_sprite_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gui_menu_sprite_3.png; sourceTree = "<group>"; };
 		AEAC282C159AB02A002F4149 /* enemies_demons-ipadhd.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "enemies_demons-ipadhd.plist"; sourceTree = "<group>"; };
 		AEAC282D159AB02A002F4149 /* enemies_demons-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "enemies_demons-ipadhd.png"; sourceTree = "<group>"; };
 		AEAC282E159AB02A002F4149 /* enemies_demons.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = enemies_demons.plist; sourceTree = "<group>"; };
@@ -847,7 +861,7 @@
 		AEAC2B3B159AF726002F4149 /* mainmenu_spritesheet_32_2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainmenu_spritesheet_32_2-ipadhd.png"; sourceTree = "<group>"; };
 		AEAC2B3C159AF732002F4149 /* mainmenu_spritesheet_32_2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = mainmenu_spritesheet_32_2.plist; sourceTree = "<group>"; };
 		AEAC2B3D159AF736002F4149 /* mainmenu_spritesheet_32_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainmenu_spritesheet_32_2.png; sourceTree = "<group>"; };
-		AEAC2B46159AF90B002F4149 /* MainMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MainMapScene.h; sourceTree = "<group>"; };
+		AEAC2B46159AF90B002F4149 /* MainMapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMapScene.h; sourceTree = "<group>"; };
 		AEAC2B47159AF90B002F4149 /* MainMapScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMapScene.m; sourceTree = "<group>"; };
 		AEACCE4A159D83F20052A525 /* MapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLayer.h; sourceTree = "<group>"; };
 		AEACCE4B159D83F20052A525 /* MapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapLayer.m; sourceTree = "<group>"; };
@@ -1262,6 +1276,10 @@
 		AEAC2872159AB02B002F4149 /* ingame */ = {
 			isa = PBXGroup;
 			children = (
+				AEA9506615A6D11E00248E96 /* gui_menu_sprite_3-ipadhd.plist */,
+				AEA9506715A6D11F00248E96 /* gui_menu_sprite_3-ipadhd.png */,
+				AEA9506815A6D11F00248E96 /* gui_menu_sprite_3.plist */,
+				AEA9506915A6D11F00248E96 /* gui_menu_sprite_3.png */,
 				AEAC2873159AB02B002F4149 /* ingame_gui-ipadhd.plist */,
 				AEAC2874159AB02B002F4149 /* ingame_gui-ipadhd.png */,
 				AEAC2875159AB02B002F4149 /* ingame_gui.plist */,
@@ -2082,6 +2100,8 @@
 		AEAF4D4915A29579009D1583 /* shader */ = {
 			isa = PBXGroup;
 			children = (
+				AEA9505D15A6BCF100248E96 /* Circle.fsh */,
+				AEA9506215A6BD0E00248E96 /* Circle.vsh */,
 				AEAF4D4A15A29579009D1583 /* Flower.fsh */,
 				AEAF4D4B15A29579009D1583 /* Flower.vsh */,
 				AEAF4D4C15A29579009D1583 /* Heart.fsh */,
@@ -2154,6 +2174,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA9506415A6CA2600248E96 /* Circle.fsh in Resources */,
+				AEA9506515A6CA2800248E96 /* Circle.vsh in Resources */,
 				AEAF4D5215A29636009D1583 /* Flower.fsh in Resources */,
 				AEAF4D5315A29638009D1583 /* Flower.vsh in Resources */,
 				AEAF4D5515A2963C009D1583 /* Heart.vsh in Resources */,
@@ -2515,6 +2537,10 @@
 				AEACCE5B159D85E30052A525 /* sprite_level1-ipadhd.png in Resources */,
 				AEACCE5C159D85E30052A525 /* sprite_level1.plist in Resources */,
 				AEACCE5D159D85E30052A525 /* sprite_level1.png in Resources */,
+				AEA9506A15A6D11F00248E96 /* gui_menu_sprite_3-ipadhd.plist in Resources */,
+				AEA9506B15A6D11F00248E96 /* gui_menu_sprite_3-ipadhd.png in Resources */,
+				AEA9506C15A6D11F00248E96 /* gui_menu_sprite_3.plist in Resources */,
+				AEA9506D15A6D11F00248E96 /* gui_menu_sprite_3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2641,6 +2667,8 @@
 				AEAF4D5B15A29DD8009D1583 /* GodObject.m in Sources */,
 				AEAF520215A3D3B1003F0F94 /* EnemyObject.m in Sources */,
 				AEAF520615A3DB3B003F0F94 /* EnemyFactory.m in Sources */,
+				AEA9505F15A6BCF200248E96 /* Circle.fsh in Sources */,
+				AEA9506315A6BD0E00248E96 /* Circle.vsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

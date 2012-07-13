@@ -24,6 +24,7 @@ typedef NSUInteger EnemyType;
 	int						m_attack;
 	
 	EnemyType				m_type;
+	NSString *				m_enemyName;
 	CCSprite *				m_enemySprite;
 	
 	int						m_pathIndex;
@@ -32,16 +33,24 @@ typedef NSUInteger EnemyType;
 	CGPoint					m_lastPoint;
 	ObjectAction			m_action;
 	
-	CCAnimate *				m_upAnimate;
-	CCAnimate *				m_rightAnimate;
-	CCAnimate *				m_downAnimate;
-	CCAnimate *				m_leftAnimate;
-	
-	CGPoint 				m_flip;
+	CCAnimate *				m_runUpAnimate;
+	CCAnimate *				m_runRightAnimate;
+	CCAnimate *				m_runDownAnimate;
+	CCAnimate *				m_runLeftAnimate;
+	CCAnimate *				m_fightAnimate;
+	CCAnimate *				m_constraintAnimate;
+	CCAnimate *				m_deadAnimate;
 }
 
 @property (nonatomic, assign) EnemyType type;
 @property (nonatomic, retain) NSArray *wayPoint;
+@property (nonatomic, retain) CCAnimate *runUpAnimate;
+@property (nonatomic, retain) CCAnimate *runRightAnimate;
+@property (nonatomic, retain) CCAnimate *runDownAnimate;
+@property (nonatomic, retain) CCAnimate *runLeftAnimate;
+@property (nonatomic, retain) CCAnimate *fightAnimate;
+@property (nonatomic, retain) CCAnimate *constraintAnimate;
+@property (nonatomic, retain) CCAnimate *deadAnimate;
 
 + (EnemyObject *)initWithType:(EnemyType)type;
 

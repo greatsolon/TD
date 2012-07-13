@@ -25,8 +25,7 @@
 		m_map = [MapObject node];
 		m_map.delegate = self;
 		[self addChild:m_map];
-		// 添加游戏逻辑层
-		[self createTowerObject];
+		
 		// 添加控制层
 		MapUILayer *controller = [MapUILayer node];
 		controller.position = ccp(size.width * 0.5f, size.height * 0.5f);
@@ -37,7 +36,9 @@
 		sn.position = ccp(40, size.height - 20);
 		[self addChild:sn z:10];
 		
+#ifdef DEBUG
 		[self setIsTouchEnabled:YES];
+#endif
 	}
 	return self;
 }
@@ -50,17 +51,14 @@
 
 #pragma mark - constraction function
 
-- (void)loadResources
-{
-	[super load];
-}
-
 - (void)createTowerObject
 {
-	TowerObject *towerObject = [TowerObject node];
-	towerObject.position = ccp(400, 340);
-	NSAssert( towerObject.parent == nil, @"child already added. It can't be added again");
-	[self addChild:towerObject z:999];
+	for (NSString *towerPosition in self.map.towerPosition) {
+		TowerObject *towerObject = [TowerObject node];
+		towerObject.position = CGPointFromString(towerPosition);
+		NSAssert( towerObject.parent == nil, @"child already added. It can't be added again");
+		[self addChild:towerObject];
+	}
 }
 
 #pragma mark - war function
@@ -77,11 +75,15 @@
 
 - (void)dataDidLoadOver
 {
+	// 添加游戏地图战斗逻辑层
+	[self createTowerObject];
+	// 开始出现第一波怪
 	[self startWave:1];
 }
 
 #pragma mark - touch function
 
+#ifdef DEBUG
 - (void)registerWithTouchDispatcher {
 	//重设点击吸收状态，设置优先级比ccmenuitem高（kCCMenuTouchPriority）
 	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:-129 swallowsTouches:NO];
@@ -100,5 +102,6 @@
 	}
 	return NO;
 }
+#endif
 
 @end

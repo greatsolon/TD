@@ -42,6 +42,7 @@ typedef NSUInteger MapType;
 @property (nonatomic, assign) id<MapObjectDelegate> delegate;
 @property (nonatomic, assign) MapType type;
 @property (nonatomic, retain) NSArray *wayPoint;
+@property (nonatomic, retain) NSArray *towerPosition;
 
 // 重置地图数据
 - (void)resetMap;

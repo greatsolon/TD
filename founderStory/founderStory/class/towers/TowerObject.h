@@ -12,11 +12,18 @@
 @interface TowerObject : GodObject {
     
 @private
-	CCSprite *				m_ring;
-	int						m_level;
+	CCSprite *				m_ring; // 塔的选择环
+	int						m_level; // 当前塔的等级
+	
+	CGFloat *				m_range; // 塔的攻击范围
+	CCNode *				m_attackRangeCricle;
 }
-// 显示/隐藏购买环
-- (void)toggleRing;
+// 当前塔获得焦点事件
+- (void)onFocus;
+// 当前塔取消焦点事件
+- (void)onBlur;
+// 显示/隐藏当前塔的菜单
+- (void)toggleMenu;
 // 点击升级按钮
 - (void)updateTower:(CCMenuItemImage *)item;
 

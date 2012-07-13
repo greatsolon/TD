@@ -12,6 +12,13 @@
 @implementation EnemyObject
 @synthesize type = m_type;
 @synthesize wayPoint = m_wayPoint;
+@synthesize runUpAnimate = m_runUpAnimate;
+@synthesize runRightAnimate = m_runRightAnimate;
+@synthesize runDownAnimate = m_runDownAnimate;
+@synthesize runLeftAnimate = m_runLeftAnimate;
+@synthesize fightAnimate = m_fightAnimate;
+@synthesize constraintAnimate = m_constraintAnimate;
+@synthesize deadAnimate = m_deadAnimate;
 
 + (EnemyObject *)initWithType:(EnemyType)type
 {
@@ -39,6 +46,13 @@
 
 - (void)dealloc
 {
+	self.runUpAnimate = nil;
+	self.runRightAnimate = nil;
+	self.runDownAnimate = nil;
+	self.runLeftAnimate = nil;
+	self.fightAnimate = nil;
+	self.constraintAnimate = nil;
+	self.deadAnimate = nil;
 	[super dealloc];
 }
 
@@ -61,11 +75,13 @@
 			case EnemyTypeOrc:
 			{
 				self.resources = [NSArray arrayWithObjects:@"enemies_goblins.plist", nil];
+				m_enemyName = @"ogre";
 			}
 				break;
 			default:
 			{
 				self.resources = [NSArray arrayWithObjects:@"enemies_goblins.plist", nil];
+				m_enemyName = @"ogre";
 			}
 				break;
 		}
@@ -75,84 +91,87 @@
 	m_enemySprite = [CCSprite spriteWithSpriteFrameName:@"ogre_0001.png"];
 	m_enemySprite.anchorPoint = ccp(0.5, 0);
 	[self addChild:m_enemySprite];
-	[self playAnimationWithDirection:ObjectActionDown];
 }
 
 - (void)playAnimationWithDirection:(ObjectAction)action
 {
+	if (m_action == action) return; // 如果已经在执行这个动画了，那么直接返回
 	CCAnimate *animate = nil;
 	m_action = action;
+	NSString *animateFileName = [NSString stringWithFormat:@"%@_%@.png", m_enemyName, @"%04d"];
 	switch (action) {
 		case ObjectActionUp:
 		{
-			if (m_upAnimate == nil) {
-				m_upAnimate = [AnimationHelper getAnimationForFrameName:@"ogre_%04d.png" startNumber:26 endNumber:50 andDuration:0.1f];
+			if (m_runUpAnimate == nil) {
+				self.runUpAnimate = [AnimationHelper getAnimationForFrameName:animateFileName startNumber:26 endNumber:50 andDuration:0.1f];
 			}
-			animate = m_upAnimate;
+			animate = m_runUpAnimate;
 		}
 			break;
 		case ObjectActionRight:
 		{
-			if (m_rightAnimate == nil) {
-				m_rightAnimate = [AnimationHelper getAnimationForFrameName:@"ogre_%04d.png" startNumber:2 endNumber:10 andDuration:0.1f];
+			if (m_runRightAnimate == nil) {
+				self.runRightAnimate = [AnimationHelper getAnimationForFrameName:animateFileName startNumber:2 endNumber:10 andDuration:0.1f];
 			}
-			animate = m_rightAnimate;
-			if (m_flip.x < 0) {
-				m_enemySprite.flipX = YES;
-				m_flip.x *= -1; 
+			animate = m_runRightAnimate;
+			if (m_enemySprite.flipX) {
+				m_enemySprite.flipX = NO;
 			}
 		}
 			break;
 		case ObjectActionDown:
 		{
-			if (m_downAnimate == nil) {
-				m_downAnimate = [AnimationHelper getAnimationForFrameName:@"ogre_%04d.png" startNumber:53 endNumber:77 andDuration:0.1f];
+			if (m_runDownAnimate == nil) {
+				self.runDownAnimate = [AnimationHelper getAnimationForFrameName:animateFileName startNumber:53 endNumber:77 andDuration:0.1f];
 			}
-			animate = m_downAnimate;
+			animate = m_runDownAnimate;
 		}
 			break;
 		case ObjectActionLeft:
 		{
-			if (m_leftAnimate == nil) {
-				m_leftAnimate = [AnimationHelper getAnimationForFrameName:@"ogre_%04d.png" startNumber:2 endNumber:25 andDuration:0.1f];
+			if (m_runLeftAnimate == nil) {
+				self.runLeftAnimate = [AnimationHelper getAnimationForFrameName:animateFileName startNumber:2 endNumber:25 andDuration:0.1f];
 			}
-			animate = m_leftAnimate;
-			if (m_flip.x >= 0) {
+			animate = m_runLeftAnimate;
+			if (!m_enemySprite.flipX) {
 				m_enemySprite.flipX = YES;
-				m_flip.x *= -1; 
 			}
 		}
 			break;
 		case ObjectActionFight:
 		{
-			if (m_downAnimate == nil) {
-				m_downAnimate = [AnimationHelper getAnimationForFrameName:@"ogre_%04d.png" startNumber:78 endNumber:105 andDuration:0.1f];
+			if (m_fightAnimate == nil) {
+				self.fightAnimate = [AnimationHelper getAnimationForFrameName:animateFileName startNumber:78 endNumber:105 andDuration:0.1f];
 			}
-			animate = m_downAnimate;
+			animate = m_fightAnimate;
 		}
 			break;
 		case ObjectActionConstraint:
 		{
-			if (m_downAnimate == nil) {
-				m_downAnimate = [AnimationHelper getAnimationForFrameName:@"ogre_%04d.png" startNumber:107 endNumber:129 andDuration:0.1f];
+			if (m_constraintAnimate == nil) {
+				self.constraintAnimate = [AnimationHelper getAnimationForFrameName:animateFileName startNumber:107 endNumber:129 andDuration:0.1f];
 			}
-			animate = m_downAnimate;
+			animate = m_constraintAnimate;
 		}
 			break;
 		case ObjectActionDead:
 		{
-			if (m_downAnimate == nil) {
-				m_downAnimate = [AnimationHelper getAnimationForFrameName:@"ogre_%04d.png" startNumber:130 endNumber:145 andDuration:0.1f];
+			if (m_deadAnimate == nil) {
+				self.deadAnimate = [AnimationHelper getAnimationForFrameName:animateFileName startNumber:130 endNumber:145 andDuration:0.1f];
 			}
-			animate = m_downAnimate;
+			animate = m_deadAnimate;
 		}
 			break;
 		default:
 			break;
 	}
 	[m_enemySprite stopAllActions];
-	CCRepeatForever *repeat = [CCRepeatForever actionWithAction:animate];
-	[m_enemySprite runAction:repeat];
+	if (action != ObjectActionDead) {
+		CCRepeatForever *repeat = [CCRepeatForever actionWithAction:animate];
+		[m_enemySprite runAction:repeat];
+	} else {
+		[m_enemySprite runAction:animate];
+	}
 }
 
 - (void)startRunWithWayPoint:(NSArray *)wayPoint
@@ -166,7 +185,10 @@
 {
 	[self stopAllActions];
 	
-	if (m_pathIndex >= [self.wayPoint count]) return;
+	if (m_pathIndex >= [self.wayPoint count]) {
+		[self terminated];
+		return;
+	}
 	NSString *wayPointString = [self.wayPoint objectAtIndex:m_pathIndex];
 	if (wayPointString == nil) return;
 	CGPoint point = CGPointFromString(wayPointString);
@@ -177,11 +199,38 @@
 	CGFloat distance = ccpDistance(m_lastPoint, point);
 	CGFloat duration = 1 / (50 / distance);
 	//CCLOG(@"duration:%f - distance:%f", duration, distance);
+	// 根据方向判断应该播放哪个动画
+	CGPoint wapPointSub = ccpSub(point, m_lastPoint);
+	if (fabs(wapPointSub.x) > fabs(wapPointSub.y)) {
+		if (wapPointSub.x > 0) {
+			[self playAnimationWithDirection:ObjectActionRight];
+		} else if (wapPointSub.x < 0) {
+			[self playAnimationWithDirection:ObjectActionLeft];
+		}
+	} else {
+		if (wapPointSub.y > 0) {
+			[self playAnimationWithDirection:ObjectActionUp];
+		} else if (wapPointSub.y < 0) {
+			[self playAnimationWithDirection:ObjectActionDown];
+		}
+	}
 	
 	CCMoveTo *actionMove = [CCMoveTo actionWithDuration:duration position:point];
 	CCCallFuncN *actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(followPath)];
 	[self runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
 	m_lastPoint = point;
+}
+
+- (void)terminated
+{
+	CCLOG(@"Enemy said:I'm release!");
+//	[self stopAllActions];
+//	[self removeFromParentAndCleanup:YES];
+	// 目前先让他循环播放
+	m_lastPoint = ccp(0, 0);
+	m_pathIndex = 0;
+	self.position = CGPointFromString([self.wayPoint objectAtIndex:0]);
+	[self followPath];
 }
 
 @end

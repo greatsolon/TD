@@ -35,13 +35,15 @@ static MapFactory *instance = nil;
 	MapLayer *map = [MapLayer node];
 	NSArray *resources = nil;
 	NSArray *wayPoint = nil;
+	NSArray *towerPosition = nil;
 	switch (type) {
 		case MapType1:
 		{
 			// 加载所需资源
 			resources = [NSArray arrayWithObjects:@"sprite_level1_2.plist", @"sprite_level1.plist", nil];
 			// 加载路点数据
-			wayPoint = [NSArray arrayWithObjects:@"{1024,320}", @"{948,320}", @"{858,320}", @"{782,290}", @"{736,236}", @"{664,212}", @"{588,226}", @"{528,232}", @"{430,224}", @"{354,236}", @"{282,296}", @"{282,384}", @"{330,426}", @"{412,454}", @"{462,490}", @"{490,564}", @"{482,654}", @"{488,734}", @"{484,780}", nil];
+			wayPoint = [NSArray arrayWithObjects:@"{1024,320}", @"{980,320}", @"{948,320}", @"{858,320}", @"{782,290}", @"{736,236}", @"{664,212}", @"{588,226}", @"{528,232}", @"{430,224}", @"{354,236}", @"{282,296}", @"{282,384}", @"{330,426}", @"{412,454}", @"{462,490}", @"{490,564}", @"{482,654}", @"{488,734}", @"{484,780}", nil];
+			towerPosition = [NSArray arrayWithObjects:@"{400,340}", @"{664,304}", @"{372,532}", nil];
 		}
 			break;
 		case MapType2:
@@ -50,6 +52,7 @@ static MapFactory *instance = nil;
 			resources = [NSArray arrayWithObjects:@"sprite_level2_2.plist", @"sprite_level2.plist", nil];
 			// 加载路点数据
 			wayPoint = [NSArray arrayWithObjects:@"{948,320}", @"{858,320}", @"{782,290}", @"{736,236}", @"{664,212}", @"{588,226}", @"{528,232}", @"{430,224}", @"{354,236}", @"{282,296}", @"{282,384}", @"{330,426}", @"{412,454}", @"{462,490}", @"{490,564}", @"{482,654}", @"{488,734}", @"{484,780}", nil];
+			towerPosition = [NSArray arrayWithObjects:@"{400,340}", @"{664,304}", @"{372,532}", nil];
 		}
 			break;
 		default:
@@ -57,6 +60,7 @@ static MapFactory *instance = nil;
 	}
 	map.map.resources = resources;
 	map.map.wayPoint = wayPoint;
+	map.map.towerPosition = towerPosition;
 	map.map.type = type;
 	[map.map loadResource];
 	return map;

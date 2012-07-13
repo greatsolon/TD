@@ -12,6 +12,7 @@
 @synthesize delegate = m_delegate;
 @synthesize type = m_type;
 @synthesize wayPoint = m_wayPoint;
+@synthesize towerPosition = m_towerPosition;
 
 - (id)init
 {
@@ -24,6 +25,7 @@
 - (void)dealloc
 {
 	self.wayPoint = nil;
+	self.towerPosition = nil;
 	[super dealloc];
 }
 
